@@ -18,8 +18,8 @@ x = {{this.cropForm.value.xVal}} & y ={{this.cropForm.value.yVal}}
     <img [src]="uri" style="width: 100%; height: 100%;" id="scream" alt="" (load)="test($event)">
 </div>
 <br>
-X Slider = <mat-slider [min]="-resWidth" [max]="resWidth" [(value)]="this.cropForm.value.xVal" invert="true" (change)="crop()"></mat-slider>
-Y Slider = <mat-slider [min]="-resHeight" [max]="resHeight" [(value)]="this.cropForm.value.yVal" vertical="true" (change)="crop()"></mat-slider>
+X Slider = <mat-slider step="5" [min]="-resWidth" [max]="resWidth" [(value)]="this.cropForm.value.xVal" invert="true" (change)="crop()"></mat-slider>
+Y Slider = <mat-slider step="5" [min]="-resHeight" [max]="resHeight" [(value)]="this.cropForm.value.yVal" vertical="true" (change)="crop()"></mat-slider>
 
 <br>
 
