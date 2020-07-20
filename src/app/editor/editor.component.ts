@@ -13,8 +13,8 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  x = 10;
-  y = 10;
+  x = 0;
+  y = 0;
 
   cropForm = this.fb.group({
     xVal: this.fb.control(10),
@@ -23,16 +23,15 @@ export class EditorComponent implements OnInit {
 
   uri;
   img;
-
   upload(file) {
+
     this.img = file[0];
     const reader = new FileReader();
     reader.readAsDataURL(this.img);
     reader.onload = _event => {
       this.uri = reader.result;
     }
-
-    console.log(this.cropForm)
+    console.log(this.img)
 
   }
 
@@ -41,6 +40,15 @@ export class EditorComponent implements OnInit {
     var ctx = c.getContext("2d");
     var img = document.getElementById("scream");
     ctx.drawImage(img, this.cropForm.value.xVal, this.cropForm.value.yVal);
+  }
+
+  resHeight = 0;
+  resWidth = 0;
+
+  test(x) {
+    console.log("runs")
+    this.resHeight = x.path[0]['naturalHeight']
+    this.resWidth = x.path[0]['naturalWidth']
   }
 
 }

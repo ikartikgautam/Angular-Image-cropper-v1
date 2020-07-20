@@ -1,6 +1,5 @@
 <p>editor works!</p>
 
-
 <form [formGroup]="cropForm">
 
     <input type="file" id="img" #img (change)="upload(img.files)">
@@ -14,11 +13,18 @@
 x = {{this.cropForm.value.xVal}} & y ={{this.cropForm.value.yVal}}
 
 <br>
+
 <div style="position: relative; width: 300px; height: 300px;">
-    <img [src]="uri" style="width: 100%; height: 100%;" id="scream" alt="">
-    <div style="width: 30px; height: 30px; background-color: red; position: absolute;"
-        [ngStyle]="{'left':x}"></div>
+    <img [src]="uri" style="width: 100%; height: 100%;" id="scream" alt="" (load)="test($event)">
 </div>
+<br>
+X Slider = <mat-slider [min]="-resWidth" [max]="resWidth" [(value)]="this.cropForm.value.xVal" invert="true" (change)="crop()"></mat-slider>
+Y Slider = <mat-slider [min]="-resHeight" [max]="resHeight" [(value)]="this.cropForm.value.yVal" vertical="true" (change)="crop()"></mat-slider>
+
+<br>
+
+{{-resHeight}}
+{{resHeight}}
 
 <br>
 
