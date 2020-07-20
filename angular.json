@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "imageEditor"
+    }
+  },
+  "defaultProject": "imageEditor",
+  "cli": {
+    "analytics": false
+  }
 }

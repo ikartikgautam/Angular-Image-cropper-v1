@@ -1,0 +1,30 @@
+<p>editor works!</p>
+
+
+<form [formGroup]="cropForm">
+
+    <input type="file" id="img" #img (change)="upload(img.files)">
+
+    <input type="text" placeholder="Enter X" formControlName="xVal" (change)="crop()">
+
+    <input type="text" placeholder="Enter Y" formControlName="yVal" (change)="crop()">
+
+</form>
+
+x = {{this.cropForm.value.xVal}} & y ={{this.cropForm.value.yVal}}
+
+<br>
+<div style="position: relative; width: 300px; height: 300px;">
+    <img [src]="uri" style="width: 100%; height: 100%;" id="scream" alt="">
+    <div style="width: 30px; height: 30px; background-color: red; position: absolute;"
+        [ngStyle]="{'left':x}"></div>
+</div>
+
+<br>
+
+<p>Canvas to fill:</p>
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML canvas tag.</canvas>
+
+
+<p><button (click)="crop()">Try it</button></p>
